@@ -1,72 +1,60 @@
-
-/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
- *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
- * 
- * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
- * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
- * seja mantido.
- * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
- * Studio para auxiliá-lo:
- * 
- * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
- * 
- * Descrição:
- * 
- * 	Este exemplo cria e preenche um vetor com números aleatórios. Logo após exibe o vetor
- * 	no console de duas formas diferentes:
- * 	
- * 		a) Na ordem em que os números foram preenchidos
- * 		b) Na ordem inversa em que os números foram preenchidos
- * 	
- * Autores:
- * 
- * 	Giordana Maria da Costa Valle
- * 	Carlos Alexandre Krueger
- * 	
- * Data: 01/06/2013
- */
-
 programa
 {
-	inclua biblioteca Util --> util
-	
-	funcao inicio() 
-	{
-		inteiro vetor[10]
-		
-		// preenche o vetor
-		para (inteiro posicao = 0; posicao < 10; posicao++)
-		{
-			vetor[posicao] = util.sorteia(1, 100) // Sorteia um número e atribui à posição do vetor
-		}
+    funcao inicio()
+    {
+        
+        inteiro numeros[10] = {2,5,1,3,4,9,7,8,10,6}
+        inteiro maior, posicao, i, j
+        inteiro numerosOrdenados[10]
+        inteiro contadorOrdenados = 0
 
-		// Exibe o vetor na ordem original
-		escreva ("Vetor na ordem original:\n")
-		
-		para(inteiro posicao = 0; posicao < 10; posicao++)
-		{
-			escreva (vetor[posicao], " ")
-		}
-		
-		// Exibe o vetor na ordem inversa
-		escreva ("\n\nVetor na ordem inversa:\n")
-		
-		para(inteiro posicao = 9; posicao >=0; posicao--)
-		{
-			escreva (vetor[posicao], " ")
-		}
-	}
+        
+        escreva("Vetor original: ")
+        para (i = 0; i < 10; i++)
+        {
+            escreva(numeros[i], " ")
+        }
+        escreva("\n")
+
+        
+        enquanto (contadorOrdenados < 10)
+        {
+            maior = numeros[0] 
+            posicao = 0    
+
+            
+            para (i = 1; i < 10; i++)
+            {
+                se (numeros[i] > maior)
+                {
+                    maior = numeros[i]
+                    posicao = i
+                }
+            }
+
+            
+            numerosOrdenados[contadorOrdenados] = maior
+            contadorOrdenados++
+
+            
+            numeros[posicao] = -9999
+        }
+
+        
+        escreva("Vetor ordenado em ordem decrescente: ")
+        para (j = 0; j < 10; j++)
+        {
+            escreva(numerosOrdenados[j], " ")
+        }
+        escreva("\n")
+    }
 }
-
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1452; 
- * @DOBRAMENTO-CODIGO = [1];
+ * @POSICAO-CURSOR = 96; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
